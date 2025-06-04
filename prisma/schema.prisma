@@ -10,6 +10,43 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+enum ClientStatus {
+  ATIVO
+  INATIVO
+}
+
+model Clients {
+  id     String       @id @default(uuid())
+  name   String
+  email  String       @unique
+  status ClientStatus
+  assets Assets[]
+
+  @@map("clients")
+  Client_Asset Client_Asset[]
+}
+
+model Assets {
+  id           String    @id @default(uuid())
+  name         String
+  currentValue Float
+  clients      Clients[]
+
+  @@map("assets")
+  Client_Asset Client_Asset[]
+}
+
+
+model Client_Asset {
+  id       String   @id @default(uuid())
+  clientId String
+  assetId  String
+  client   Clients  @relation(fields: [clientId], references: [id])
+  asset    Assets   @relation(fields: [assetId], references: [id])
+  @@unique([clientId, assetId])
+  @@map("client_asset")
 }
