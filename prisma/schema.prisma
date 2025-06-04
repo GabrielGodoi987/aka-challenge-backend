@@ -32,7 +32,7 @@ model Clients {
 
 model Assets {
   id           String    @id @default(uuid())
-  name         String
+  name         String @unique
   currentValue Float
   clients      Clients[]
 
