@@ -15,7 +15,6 @@ export interface CreateClient {
 }
 
 export interface ClientUpdate {
-  id: string;
   name?: string;
   email?: string;
   status?: ClientStatus;

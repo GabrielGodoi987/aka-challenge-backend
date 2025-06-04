@@ -6,7 +6,8 @@ services:
       MYSQL_DATABASE: financialDb
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: docker
-
+    networks:
+      - aka_network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pdocker"]
       interval: 10s
@@ -17,6 +18,11 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+
+
+networks:
+  aka_network:
+    driver: bridge
 
 volumes:
   mysql_data:
