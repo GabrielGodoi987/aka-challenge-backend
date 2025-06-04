@@ -7,7 +7,8 @@
     "dev": "tsx watch src/app.ts",
     "build": "npm run build && tsc -p tsconfig.json",
     "prisma:generate": "npx prisma generate",
-    "prisma:migrate": "npx prisma migrate dev"
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio"
   },
   "prisma": {
     "seed": "ts-node src/infra/database/seed.ts"

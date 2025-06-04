@@ -1,7 +1,5 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { ClientUseCase } from "../../../domain/usecases/client.useCase";
-import type { CreateClient } from "../../../domain/interfaces/client/client.interface";
-import { request } from "http";
 import { createClientSchema } from "../../../shared/zod/client.schema";
 import { validateBody } from "../util/validator/body.validator";
 
