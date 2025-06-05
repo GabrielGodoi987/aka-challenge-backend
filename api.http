@@ -1,10 +1,87 @@
-### Get all assets
+### ROTAS DE ASSET
 
-## get all assets
+# ================================
+# 📄 GET - Buscar todos os assets
+# ================================
 GET http://localhost:4000/assets
-Accept: application/json
+Content-Type: application/json
+
+###
+
+# ================================
+# 📄 GET - Buscar asset por ID
+# ================================
+GET http://localhost:4000/assets/{{assetId}}
+Content-Type: application/json
+
+###
+
+# ================================
+# 📄 GET - Buscar todos os assets de um cliente
+# ================================
+GET http://localhost:4000/assets/client/{{clientId}}/assets
+Content-Type: application/json
+
+###
 
 
-## get all clients
+
+### ROTAS DE CLIENTE
+
+# ================================
+# 📄 GET - Buscar todos os clientes
+# ================================
 GET http://localhost:4000/clients
-Accept: application/json
+Content-Type: application/json
+
+###
+
+# ================================
+# 📄 GET - Buscar cliente por ID
+# ================================
+GET http://localhost:4000/clients/{{clientId}}
+Content-Type: application/json
+
+###
+
+# ================================
+# 🆕 POST - Criar novo cliente
+# ================================
+POST http://localhost:4000/clients
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao@example.com",
+}
+
+###
+
+# ================================
+# ➕ POST - Adicionar asset ao cliente
+# ================================
+POST http://localhost:4000/clients/addAsset/client/{{clientId}}/asset/{{assetId}}
+Content-Type: application/json
+
+###
+
+# ================================
+# ✏️ PUT - Atualizar cliente
+# ================================
+PUT http://localhost:4000/clients/{{clientId}}
+Content-Type: application/json
+
+{
+  "name": "João Atualizado",
+  "email": "joaoatualizado@example.com",
+}
+
+###
+
+# ================================
+# ❌ DELETE - Desativar cliente
+# ================================
+DELETE http://localhost:4000/clients/deactivate/{{clientId}}
+Content-Type: application/json
+
+###
