@@ -2,12 +2,14 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
-      - "5555:5555"
+      - "4000:4000"
     volumes:
       - .:/app
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
+    networks:
+      - aka_network
       
   mysql:
     image: mysql:8.0

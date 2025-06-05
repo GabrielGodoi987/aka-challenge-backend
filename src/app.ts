@@ -45,7 +45,7 @@ server.get("/", async (request: FastifyRequest, reply) => {
   };
 });
 
-server.listen({ port: 4000 }, (err, address) => {
+server.listen({ port: 4000, host: "0.0.0.0" },(err, address) => {
   if (err) {
     server.log.error(err);
     process.exit(1);

@@ -1,0 +1,10 @@
+### Get all assets
+
+## get all assets
+GET http://localhost:4000/assets
+Accept: application/json
+
+
+## get all clients
+GET http://localhost:4000/clients
+Accept: application/json
